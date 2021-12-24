@@ -49,3 +49,10 @@
 .button.active{
 background-color: pink;
 }
+
+.help_btn{
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  color: blue;
+}

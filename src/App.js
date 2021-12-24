@@ -2,11 +2,13 @@ import './App.css';
 import React,{useState} from 'react';
 import Question from './components/Question';
 import Header from './components/Header';
+import Help from './components/Help';
 
 
 function App() {
   
   const [currentPage, setCurrentPage] = useState(1);
+  const[needHelp, setNeedHelp] = useState(false);
  
   const question_data = [
     {
@@ -137,6 +139,12 @@ function App() {
     }
   ];
 
+  const helpHandler = () => {
+    setNeedHelp(true);
+  }
+  const closeHelp = () => {
+    setNeedHelp(false);
+  }
   
   function changePage(event) {
     const pageNumber = Number(event.target.textContent);
@@ -158,10 +166,12 @@ const prevPageHandler = () => {
 }
   return (
     <React.Fragment>
+     
       <Header/>
       <div class="spacer">
       &nbsp;
       </div>
+      
      <div className="body">
       <Question ques={question_data[currentPage-1]} answer='' onNext={nextPageHandler} onPrev={prevPageHandler}/>
       <div className="side_bar">
@@ -171,7 +181,8 @@ const prevPageHandler = () => {
                     
                 </div>
                 <div className="side_barHelp">
-                    Need Help ?
+                   { /*Need Help ?*/}
+                   <button onClick={helpHandler} className="help_btn">Need Help ?</button>
                 </div>
             </div>
             <div className="pagination">
